@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OCBC Account Dashboard</title>
+    <style>
+        .logout {
+            margin: 2% 10% 2% 0%;
+            text-align: right;
+        }
+        .button {
+            background-color: inherit;
+            border: none;
+            color: #2434ff;
+            font-size: 25px;
+            padding: 5px 10px 5px 10px;
+        }
+        .amount {
+            background-color: #BABABA;
+            border: 2px solid #000000;
+            margin: 0% 25% 5% 25%;
+            padding: 2% 1% 2% 1%;
+            text-align: center;
+        }
+        .amountText {
+            font-size: 25px;
+        }
+        .header {
+            font-size: 50px;
+            font-weight: bold;
+        }
+        .activity {
+            border-top: 2px solid #BABABA;
+            margin: 0% 10% 0% 10%;
+            text-align: center;
+        }
+        .activityText {
+            font-size: 25px;
+        }
+        .transfer {
+            margin: 5% 10% 5% 10%;
+            text-align: center;
+        }
+        @media (min-width: 1020px) {
+            .amount {
+                margin-bottom: 50px;
+                margin-left: auto;
+                margin-right: auto;
+                width: 482px;
+            }
+        }
+    </style>
+    <script src="../routes/account.js"></script>
+</head>
+<body>
+    <div class="logout">
+        <form action="http://localhost:8080/authenticate/login">
+            <input type="submit" value="Log out" class="button">
+        </form>
+    </div>
+    <div class="amount">
+        <p class="amountText">You have</p><br>
+            <h1 id="money" class="header">
+                <script>
+                    fetch("../mock/account/balance.json")
+                    .then(response=>response.json)
+                    .then(data=>{document.getElementById("money").innerHTML = "SGD" + data.balance})
+                </script>
+            </h1><br>
+        <p class="amountText">in your account</p>
+    </div>
+    <div class="activity">
+        <h2 class="header">Recent Transaction</h2>
+        <p id="details">
+            <script>
+                fetch("../mock/account/transactions.json")
+                .then(response=>response.json)
+                .then(data=>{document.getElementById("details").innerHTML = data.data + "<br />";})
+            </script>
+        </p>
+    </div>
+    <div class="transfer">
+        <form action="http://localhost:8080/transfer">
+            <input type="submit" value="Make a transfer" class="button">
+        </form>
+    </div>
+</body>
+</html>

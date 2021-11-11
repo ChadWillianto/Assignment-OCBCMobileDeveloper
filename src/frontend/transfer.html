@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OCBC Transfer</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        .header {
+            font-size: 3vw;
+            margin: 10% 0% 5% 0%;
+        }
+        .recipient {
+            border: none;
+            border-bottom: 1px solid #BABABA;
+            font-size: 25px;
+            margin: 2% 0% 1% 0%;
+            padding: 20px;
+            width: 70%;
+        }
+        .recipient:focus {
+            outline: none;
+        }
+        .date {
+            border: none;
+            border-bottom: 1px solid #BABABA;
+            font-size: 25px;
+            margin: 1% 0% 1% 0%;
+            padding: 20px;
+            width: 70%;
+        }
+        .date:focus {
+            outline: none;
+        }
+        .description {
+            border: none;
+            border-bottom: 1px solid #BABABA;
+            font-size: 25px;
+            margin: 1% 0% 1% 0%;
+            padding: 20px;
+            width: 70%;
+        }
+        .description:focus {
+            outline: none;
+        }
+        .amount {
+            border: none;
+            border-bottom: 1px solid #BABABA;
+            font-size: 25px;
+            margin: 1% 0% 2% 0%;
+            padding: 20px;
+            width: 70%;
+        }
+        .amount:focus {
+            outline: none;
+        }
+        .button {
+            margin: 5% 10% 5% 10%;
+        }
+        .clear {
+            background-color: inherit;
+            border: none;
+            color: #2434ff;
+            font-size: 25px;
+            margin-right: 10%;
+        }
+        .transfer {
+            background-color: inherit;
+            border: none;
+            color: #2434ff;
+            font-size: 25px;
+            margin-left: 10%;
+        }
+    </style>
+    <script src="../routes/transfer.ts"></script>
+</head>
+<body>
+    <h1 class="header">Make a transfer</h1>
+    <form name="transferForm" action="http://localhost:8080/transfer" method="post">
+        <input type="text" name="recipient" placeholder="Recipient" class="recipient"><br>
+        <input type="datetime-local" name="date" class="date"><br>
+        <input type="text" name="description" placeholder="Description" class="description"><br>
+        <input type="number" step="0.01" name="amount" placeholder="Amount" class="amount"><br>
+        <div class="button">
+            <input type="reset" value="Cancel" class="clear">
+            <input type="submit" value="Transfer" class="transfer">
+        </div>
+    </form>
+</body>
+</html>

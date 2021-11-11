@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OCBC Login Page</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        .header {
+            color: #DA291C;
+            font-size: 75px;
+            margin: 25% 0% 10% 0%;
+        }
+        .username {
+            border: none;
+            border-bottom: 1px solid #BABABA;
+            font-size: 25px;
+            margin: 2% 0% 1% 0%;
+            padding: 20px;
+            width: 70%;
+        }
+        .username:focus {
+            outline: none;
+        }
+        .password {
+            border: none;
+            border-bottom: 1px solid #BABABA;
+            font-size: 25px;
+            margin: 1% 0% 2% 0%;
+            padding: 20px;
+            width: 70%;
+        }
+        .password:focus {
+            outline: none;
+        }
+        .loginButton {
+            background-color: #BABABA;
+            border-radius: 50px;
+            font-size: 25px;
+            font-weight: bold;
+            margin: 5% 0% 25% 0%;
+            padding: 20px;
+            width: 75%;
+        }
+        @media (min-width: 1020px) {
+            .header {
+                margin: 5% 0% 10% 0%;
+            }
+            .loginButton {
+                margin: 5% 0% 5% 0%;
+            }
+        }
+    </style>
+    <scrip src="../routes/auth.js"></script>
+</head>
+<body>
+    <h1 class="header">OCBC</h1>
+    <form name="loginForm" action="http://localhost:8080/authenticate/login" method="post">
+        <input type="text" name="username" placeholder="Username" class="username"><br>
+        <input type="password" name="password" placeholder="Password" class="password"><br>
+        <input type="submit" value="Login" class="loginButton"><br>
+    <form>
+</body>
+</html>
